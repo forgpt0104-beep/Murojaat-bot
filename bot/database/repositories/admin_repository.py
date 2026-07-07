@@ -84,11 +84,27 @@ class AdminRepository(BaseRepository[Admin]):
         """Increment the reply counter, auto-registering the employee if needed.
 
         Staff are authorized purely by being members of the group, so their first
-        reply is what creates their Admin/employee tracking row.
+        reply is what creates their Admin/employee tracking row. Crucially, this
+        must never resurrect a super_admin/admin row that was deliberately
+        deactivated (e.g. by demote_stale_super_admins) - otherwise a demoted
+        former super admin regains full access simply by replying in the group.
         """
-        admin = await self.add_admin(
-            telegram_id, full_name=full_name, username=username, role=AdminRole.EMPLOYEE
-        )
+        admin = await self.get_by_telegram_id(telegram_id)
+        if admin is None:
+            admin = await self.create(
+                telegram_id=telegram_id,
+                full_name=full_name,
+                username=username,
+                role=AdminRole.EMPLOYEE,
+                is_active=True,
+            )
+        elif admin.role == AdminRole.EMPLOYEE:
+            admin.is_active = True
+            if full_name is not None:
+                admin.full_name = full_name
+            if username is not None:
+                admin.username = username
+
         admin.replies_count += 1
         await self.session.flush()
 
