@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from aiogram import Router
+from aiogram import F, Router
 from aiogram.types import CallbackQuery, Message
 
 from bot.config import settings
@@ -52,7 +52,7 @@ async def my_appeals_entry(message: Message, uow: UnitOfWork, db_user: User, lan
     await message.answer(header, reply_markup=keyboard)
 
 
-@router.callback_query(PaginationCallback.filter())
+@router.callback_query(PaginationCallback.filter(F.scope == "my_appeals"))
 async def my_appeals_paginate(
     call: CallbackQuery,
     callback_data: PaginationCallback,
@@ -60,7 +60,7 @@ async def my_appeals_paginate(
     db_user: User,
     lang: str,
 ) -> None:
-    if callback_data.scope != "my_appeals" or db_user is None:
+    if db_user is None:
         await call.answer()
         return
 
