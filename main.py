@@ -66,6 +66,25 @@ def register_middlewares(dp: Dispatcher) -> None:
         observer.outer_middleware(ThrottlingMiddleware())
 
 
+async def verify_group_access(bot: Bot) -> None:
+    """Log the resolved GROUP_ID and whether the bot can actually see that chat.
+
+    This turns a silent "chat not found" (which only surfaces later, when the
+    first appeal tries to post) into an obvious, actionable line at startup.
+    """
+    logger.info(f"Configured GROUP_ID = {settings.GROUP_ID}")
+    try:
+        chat = await bot.get_chat(settings.GROUP_ID)
+        logger.info(f"Staff group OK: \"{chat.title}\" (type={chat.type}, id={chat.id})")
+    except Exception as exc:
+        logger.error(
+            f"Cannot access GROUP_ID={settings.GROUP_ID}: {exc}. "
+            "Check that this bot (not a different bot/token) has been added to "
+            "that exact chat, and that GROUP_ID in your environment variables "
+            "has no extra spaces/quotes and matches the group's real chat id."
+        )
+
+
 async def main() -> None:
     setup_logging()
     logger.info("Starting Telegram Support Request Bot...")
@@ -81,6 +100,7 @@ async def main() -> None:
 
     await ensure_super_admin()
     await setup_bot_commands(bot)
+    await verify_group_access(bot)
 
     try:
         await bot.delete_webhook(drop_pending_updates=True)
