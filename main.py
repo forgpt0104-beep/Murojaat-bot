@@ -41,13 +41,17 @@ async def ensure_super_admin() -> None:
     and revoke that role from any previous super admin left over from an
     earlier SUPER_ADMIN_ID value (otherwise rotating it never transfers access).
     """
+    logger.info(f"Configured SUPER_ADMIN_ID = {settings.SUPER_ADMIN_ID}")
     async with async_session_factory() as session:
         uow = UnitOfWork(session)
         await uow.admins.add_admin(settings.SUPER_ADMIN_ID, role=AdminRole.SUPER_ADMIN)
         demoted = await uow.admins.demote_stale_super_admins(settings.SUPER_ADMIN_ID)
         await session.commit()
-        for admin in demoted:
-            logger.info(f"Demoted stale super admin telegram_id={admin.telegram_id}")
+        if demoted:
+            for admin in demoted:
+                logger.info(f"Demoted stale super admin telegram_id={admin.telegram_id}")
+        else:
+            logger.info("No stale super admin rows to demote")
 
 
 async def setup_bot_commands(bot: Bot) -> None:
