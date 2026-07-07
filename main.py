@@ -37,11 +37,17 @@ ADMIN_COMMANDS = BOT_COMMANDS + [
 
 
 async def ensure_super_admin() -> None:
-    """Guarantee the SUPER_ADMIN_ID always has an active super_admin Admin row."""
+    """Guarantee the SUPER_ADMIN_ID always has an active super_admin Admin row,
+    and revoke that role from any previous super admin left over from an
+    earlier SUPER_ADMIN_ID value (otherwise rotating it never transfers access).
+    """
     async with async_session_factory() as session:
         uow = UnitOfWork(session)
         await uow.admins.add_admin(settings.SUPER_ADMIN_ID, role=AdminRole.SUPER_ADMIN)
+        demoted = await uow.admins.demote_stale_super_admins(settings.SUPER_ADMIN_ID)
         await session.commit()
+        for admin in demoted:
+            logger.info(f"Demoted stale super admin telegram_id={admin.telegram_id}")
 
 
 async def setup_bot_commands(bot: Bot) -> None:

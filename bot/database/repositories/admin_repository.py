@@ -56,6 +56,25 @@ class AdminRepository(BaseRepository[Admin]):
         await self.session.flush()
         return admin
 
+    async def demote_stale_super_admins(self, current_telegram_id: int) -> Sequence[Admin]:
+        """Deactivate any super_admin row that no longer matches the configured
+        SUPER_ADMIN_ID, so rotating that env var actually transfers access
+        instead of leaving the previous super admin permanently active.
+        """
+        result = await self.session.execute(
+            select(Admin).where(
+                Admin.role == AdminRole.SUPER_ADMIN,
+                Admin.telegram_id != current_telegram_id,
+                Admin.is_active.is_(True),
+            )
+        )
+        stale = result.scalars().all()
+        for admin in stale:
+            admin.is_active = False
+        if stale:
+            await self.session.flush()
+        return stale
+
     async def increment_replies_count(
         self,
         telegram_id: int,
