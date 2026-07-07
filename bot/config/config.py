@@ -51,6 +51,21 @@ class Settings(BaseSettings):
             raise ValueError(f"LOG_LEVEL must be one of {allowed}, got {value!r}")
         return upper
 
+    @field_validator("DATABASE_URL")
+    @classmethod
+    def normalize_database_url(cls, value: str) -> str:
+        """Force the asyncpg driver, even if a plain postgres://... URL was supplied.
+
+        Managed Postgres providers (Railway, Heroku, Render, ...) hand out
+        DATABASE_URL in the plain "postgres://" / "postgresql://" form, which
+        SQLAlchemy's async engine can't use directly.
+        """
+        if value.startswith("postgres://"):
+            return "postgresql+asyncpg://" + value[len("postgres://") :]
+        if value.startswith("postgresql://"):
+            return "postgresql+asyncpg://" + value[len("postgresql://") :]
+        return value
+
     @property
     def logs_path(self) -> Path:
         path = BASE_DIR / self.LOG_DIR
