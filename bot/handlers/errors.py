@@ -6,14 +6,19 @@ from aiogram import Bot, Router
 from aiogram.types import ErrorEvent
 from loguru import logger
 
-from bot.locales import i18n
+from bot.locales import DEFAULT_LANGUAGE, i18n
 
 router = Router(name="errors")
 
 
 @router.errors()
-async def global_error_handler(event: ErrorEvent, bot: Bot) -> bool:
-    """Catch-all handler so a single bad update never crashes the bot process."""
+async def global_error_handler(event: ErrorEvent, bot: Bot, lang: str = DEFAULT_LANGUAGE) -> bool:
+    """Catch-all handler so a single bad update never crashes the bot process.
+
+    `lang` is populated from the same middleware chain (I18nMiddleware) that
+    handlers use, so the failure message is shown in the user's own language
+    instead of always falling back to English.
+    """
     logger.opt(exception=event.exception).error(
         f"Unhandled exception while processing update {event.update.update_id}"
     )
@@ -27,7 +32,7 @@ async def global_error_handler(event: ErrorEvent, bot: Bot) -> bool:
 
     if chat_id is not None:
         try:
-            await bot.send_message(chat_id, i18n.get("en", "error_generic"))
+            await bot.send_message(chat_id, i18n.get(lang, "error_generic"))
         except Exception:
             logger.exception("Failed to notify user about an unhandled error")
 
