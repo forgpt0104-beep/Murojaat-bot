@@ -1,0 +1,88 @@
+{
+  "choose_language": "🌐 Please choose your language:",
+  "language_set": "✅ Language set to English.",
+
+  "main_menu_text": "🏠 <b>Main Menu</b>\n\nChoose an option below:",
+  "btn_new_appeal": "📨 New Appeal",
+  "btn_my_appeals": "📂 My Appeals",
+  "btn_change_language": "🌐 Change Language",
+  "btn_help": "ℹ️ Help",
+  "btn_back": "⬅️ Back",
+  "btn_yes": "✅ Yes",
+  "btn_no": "❌ No",
+  "btn_cancel": "🚫 Cancel",
+  "btn_prev": "⬅️ Prev",
+  "btn_next": "➡️ Next",
+  "btn_confirm_send": "📤 Send appeal",
+  "btn_reopen": "🔄 Reopen",
+  "btn_close": "✅ Close",
+
+  "help_text": "ℹ️ <b>Help</b>\n\nThis bot allows you to submit appeals to our support team.\n\n📨 <b>New Appeal</b> — start a new appeal. You can attach text, photos, videos, voice messages, documents, audio, location, or contacts.\n\n📂 <b>My Appeals</b> — view the status and history of your appeals.\n\n🌐 <b>Change Language</b> — switch the interface language.\n\nOnce you submit an appeal, our staff will review it and reply directly here in the bot.",
+
+  "banned_message": "⛔ You have been banned from using this bot. If you think this is a mistake, please contact the administration through another channel.",
+  "flood_wait": "⏳ Please slow down and wait a moment before sending another message.",
+  "error_generic": "⚠️ Something went wrong. Please try again later.",
+
+  "new_appeal_prompt": "📝 Please describe your appeal.\n\nYou can send text, photo, video, voice message, document, audio, location or contact. You may send multiple attachments.",
+  "new_appeal_received_item": "✅ Received. Do you want to attach more files?",
+  "new_appeal_empty": "⚠️ Please send at least some text or an attachment before finishing.",
+  "new_appeal_cancelled": "🚫 Appeal creation cancelled.",
+  "new_appeal_created": "✅ <b>Your appeal has been submitted!</b>\n\n🆔 Appeal ID: <b>#{appeal_number:06d}</b>\n\nOur team will review it and reply here as soon as possible.",
+  "new_appeal_unsupported_content": "⚠️ This type of content is not supported. Please send text, photo, video, voice, document, audio, location or contact.",
+
+  "my_appeals_empty": "📭 You don't have any appeals yet.",
+  "my_appeals_header": "📂 <b>Your Appeals</b>\n\nPage {page}/{total_pages}",
+  "my_appeals_item": "🆔 #{appeal_number:06d} | {status} | {date}",
+  "appeal_detail_header": "🆔 <b>Appeal #{appeal_number:06d}</b>\n📅 Date: {date}\n📊 Status: {status}\n\n",
+  "appeal_detail_no_messages": "No messages in this appeal.",
+
+  "status_new": "🆕 New",
+  "status_in_process": "⏳ In process",
+  "status_answered": "✅ Answered",
+  "status_closed": "🔒 Closed",
+
+  "response_header": "📩 <b>Response</b>\n━━━━━━━━━━━━━━\n🆔 Appeal ID: #{appeal_number:06d}\n\n💬 <b>Administrator response:</b>",
+
+  "admin_only": "⛔ This command is only available to administrators.",
+  "group_only": "⚠️ This command can only be used inside the staff group.",
+
+  "admin_panel_title": "🛠 <b>Admin Panel</b>\n\nChoose an action:",
+  "btn_admin_stats": "📊 Statistics",
+  "btn_admin_broadcast": "📢 Broadcast",
+  "btn_admin_search": "🔎 Search Appeal",
+  "btn_admin_ban": "🚫 Ban User",
+  "btn_admin_unban": "✅ Unban User",
+  "btn_admin_export": "📁 Export",
+  "btn_admin_settings": "⚙️ Settings",
+
+  "stats_title": "📊 <b>Statistics</b>\n\n📅 Today: {today}\n🗓 This week: {week}\n📆 This month: {month}\n\n👥 Total users: {total_users}\n📨 Total appeals: {total_appeals}\n✅ Answered: {answered}\n⏳ Pending: {pending}\n🔒 Closed: {closed}\n\n🌐 Languages:\n{languages}\n\n🏆 Top employees:\n{top_employees}",
+
+  "broadcast_prompt": "📢 Send the message you want to broadcast to all users (text, photo, video or document).",
+  "broadcast_confirm": "📢 <b>Confirm broadcast</b>\n\nThis message will be sent to <b>{count}</b> users. Continue?",
+  "broadcast_started": "📤 Broadcast started. This may take a while...",
+  "broadcast_finished": "✅ Broadcast finished.\n\nSent: {sent}\nFailed: {failed}",
+  "broadcast_cancelled": "🚫 Broadcast cancelled.",
+
+  "search_prompt": "🔎 Enter Appeal ID, Telegram ID, username, name or phone number to search:",
+  "search_no_results": "📭 No results found.",
+  "search_results_header": "🔎 <b>Search results</b> ({count})",
+
+  "ban_prompt": "🚫 Enter the Telegram ID or username of the user to ban:",
+  "ban_reason_prompt": "✍️ Enter the ban reason (or /skip):",
+  "ban_success": "✅ User {user} has been banned.",
+  "ban_user_not_found": "⚠️ User not found.",
+  "unban_prompt": "✅ Enter the Telegram ID or username of the user to unban:",
+  "unban_success": "✅ User {user} has been unbanned.",
+
+  "export_prompt": "📁 Choose export format:",
+  "export_done": "✅ Export ready.",
+
+  "settings_title": "⚙️ <b>Settings</b>",
+
+  "reply_sent_confirmation": "✅ Reply delivered to the user.",
+  "reply_failed": "⚠️ Failed to deliver the reply to the user (they may have blocked the bot).",
+
+  "phone_share_prompt": "📱 Please share your phone number to continue (optional).",
+  "btn_share_contact": "📱 Share contact",
+  "btn_skip": "⏭ Skip"
+}

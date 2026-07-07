@@ -1,0 +1,43 @@
+# Environment
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+env/
+
+# Logs
+logs/*.log
+logs/*.log.*
+
+# Exports
+exports/*.csv
+exports/*.xlsx
+exports/*.pdf
+
+# Database
+*.sqlite3
+backups/*.sql
+backups/*.dump
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Docker
+*.pid
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Alembic local sqlite (if used for tests)
+test.db

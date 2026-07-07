@@ -1,0 +1,88 @@
+{
+  "choose_language": "🌐 Iltimos, tilni tanlang:",
+  "language_set": "✅ Til o'zbekchaga o'zgartirildi.",
+
+  "main_menu_text": "🏠 <b>Asosiy menyu</b>\n\nKerakli bo'limni tanlang:",
+  "btn_new_appeal": "📨 Yangi murojaat",
+  "btn_my_appeals": "📂 Mening murojaatlarim",
+  "btn_change_language": "🌐 Tilni o'zgartirish",
+  "btn_help": "ℹ️ Yordam",
+  "btn_back": "⬅️ Orqaga",
+  "btn_yes": "✅ Ha",
+  "btn_no": "❌ Yo'q",
+  "btn_cancel": "🚫 Bekor qilish",
+  "btn_prev": "⬅️ Oldingi",
+  "btn_next": "➡️ Keyingi",
+  "btn_confirm_send": "📤 Murojaatni yuborish",
+  "btn_reopen": "🔄 Qayta ochish",
+  "btn_close": "✅ Yopish",
+
+  "help_text": "ℹ️ <b>Yordam</b>\n\nUshbu bot orqali qo'llab-quvvatlash xizmatimizga murojaat yuborishingiz mumkin.\n\n📨 <b>Yangi murojaat</b> — yangi murojaat yaratish. Matn, rasm, video, ovozli xabar, hujjat, audio, joylashuv yoki kontakt biriktirishingiz mumkin.\n\n📂 <b>Mening murojaatlarim</b> — murojaatlaringiz holati va tarixini ko'rish.\n\n🌐 <b>Tilni o'zgartirish</b> — interfeys tilini almashtirish.\n\nMurojaat yuborilgach, xodimlarimiz uni ko'rib chiqib, shu yerda javob berishadi.",
+
+  "banned_message": "⛔ Siz ushbu botdan foydalanishdan bloklangansiz. Agar bu xato deb hisoblasangiz, administratsiya bilan boshqa yo'l orqali bog'laning.",
+  "flood_wait": "⏳ Iltimos, xabarlarni juda tez-tez yubormang.",
+  "error_generic": "⚠️ Xatolik yuz berdi. Iltimos, keyinroq qayta urinib ko'ring.",
+
+  "new_appeal_prompt": "📝 Murojaatingizni yozing.\n\nMatn, rasm, video, ovozli xabar, hujjat, audio, joylashuv yoki kontakt yuborishingiz mumkin. Bir nechta fayl yuborish ham mumkin.",
+  "new_appeal_received_item": "✅ Qabul qilindi. Yana fayl biriktirmoqchimisiz?",
+  "new_appeal_empty": "⚠️ Iltimos, yakunlashdan oldin matn yoki fayl yuboring.",
+  "new_appeal_cancelled": "🚫 Murojaat yaratish bekor qilindi.",
+  "new_appeal_created": "✅ <b>Murojaatingiz yuborildi!</b>\n\n🆔 Murojaat raqami: <b>#{appeal_number:06d}</b>\n\nJamoamiz uni ko'rib chiqib, tez orada shu yerda javob beradi.",
+  "new_appeal_unsupported_content": "⚠️ Bu turdagi kontent qo'llab-quvvatlanmaydi. Matn, rasm, video, ovozli xabar, hujjat, audio, joylashuv yoki kontakt yuboring.",
+
+  "my_appeals_empty": "📭 Sizda hali murojaatlar yo'q.",
+  "my_appeals_header": "📂 <b>Murojaatlaringiz</b>\n\nSahifa {page}/{total_pages}",
+  "my_appeals_item": "🆔 #{appeal_number:06d} | {status} | {date}",
+  "appeal_detail_header": "🆔 <b>Murojaat #{appeal_number:06d}</b>\n📅 Sana: {date}\n📊 Holat: {status}\n\n",
+  "appeal_detail_no_messages": "Ushbu murojaatda xabarlar yo'q.",
+
+  "status_new": "🆕 Yangi",
+  "status_in_process": "⏳ Jarayonda",
+  "status_answered": "✅ Javob berildi",
+  "status_closed": "🔒 Yopilgan",
+
+  "response_header": "📩 <b>Javob</b>\n━━━━━━━━━━━━━━\n🆔 Murojaat raqami: #{appeal_number:06d}\n\n💬 <b>Administrator javobi:</b>",
+
+  "admin_only": "⛔ Bu buyruq faqat administratorlar uchun.",
+  "group_only": "⚠️ Bu buyruqni faqat xodimlar guruhida ishlatish mumkin.",
+
+  "admin_panel_title": "🛠 <b>Administrator paneli</b>\n\nKerakli amalni tanlang:",
+  "btn_admin_stats": "📊 Statistika",
+  "btn_admin_broadcast": "📢 Xabar tarqatish",
+  "btn_admin_search": "🔎 Murojaatni qidirish",
+  "btn_admin_ban": "🚫 Foydalanuvchini bloklash",
+  "btn_admin_unban": "✅ Blokdan chiqarish",
+  "btn_admin_export": "📁 Eksport",
+  "btn_admin_settings": "⚙️ Sozlamalar",
+
+  "stats_title": "📊 <b>Statistika</b>\n\n📅 Bugun: {today}\n🗓 Shu hafta: {week}\n📆 Shu oy: {month}\n\n👥 Jami foydalanuvchilar: {total_users}\n📨 Jami murojaatlar: {total_appeals}\n✅ Javob berilgan: {answered}\n⏳ Kutilmoqda: {pending}\n🔒 Yopilgan: {closed}\n\n🌐 Tillar:\n{languages}\n\n🏆 Eng faol xodimlar:\n{top_employees}",
+
+  "broadcast_prompt": "📢 Barcha foydalanuvchilarga yubormoqchi bo'lgan xabaringizni kiriting (matn, rasm, video yoki hujjat).",
+  "broadcast_confirm": "📢 <b>Xabar tarqatishni tasdiqlang</b>\n\nBu xabar <b>{count}</b> ta foydalanuvchiga yuboriladi. Davom etamizmi?",
+  "broadcast_started": "📤 Xabar tarqatish boshlandi. Bu biroz vaqt olishi mumkin...",
+  "broadcast_finished": "✅ Xabar tarqatish yakunlandi.\n\nYuborildi: {sent}\nXato: {failed}",
+  "broadcast_cancelled": "🚫 Xabar tarqatish bekor qilindi.",
+
+  "search_prompt": "🔎 Qidirish uchun murojaat raqami, Telegram ID, foydalanuvchi nomi, ism yoki telefon raqamini kiriting:",
+  "search_no_results": "📭 Hech narsa topilmadi.",
+  "search_results_header": "🔎 <b>Qidiruv natijalari</b> ({count})",
+
+  "ban_prompt": "🚫 Bloklash uchun Telegram ID yoki foydalanuvchi nomini kiriting:",
+  "ban_reason_prompt": "✍️ Bloklash sababini kiriting (yoki /skip):",
+  "ban_success": "✅ {user} foydalanuvchisi bloklandi.",
+  "ban_user_not_found": "⚠️ Foydalanuvchi topilmadi.",
+  "unban_prompt": "✅ Blokdan chiqarish uchun Telegram ID yoki foydalanuvchi nomini kiriting:",
+  "unban_success": "✅ {user} foydalanuvchisi blokdan chiqarildi.",
+
+  "export_prompt": "📁 Eksport formatini tanlang:",
+  "export_done": "✅ Eksport tayyor.",
+
+  "settings_title": "⚙️ <b>Sozlamalar</b>",
+
+  "reply_sent_confirmation": "✅ Javob foydalanuvchiga yetkazildi.",
+  "reply_failed": "⚠️ Javobni foydalanuvchiga yetkazib bo'lmadi (u botni bloklagan bo'lishi mumkin).",
+
+  "phone_share_prompt": "📱 Iltimos, telefon raqamingizni ulashing (ixtiyoriy).",
+  "btn_share_contact": "📱 Kontaktni ulashish",
+  "btn_skip": "⏭ O'tkazib yuborish"
+}
